@@ -1,12 +1,20 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import Home from './components/Home'
+import Cart from './components/Cart'
 
 function App() {
   return (
-    <div className='App'>
+    <Router>
       <Header />
-    </div>
+      <Routes>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/cart' exact element={<Cart />} />
+      </Routes>
+    </Router>
   )
 }
 
