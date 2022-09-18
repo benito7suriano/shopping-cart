@@ -4,13 +4,14 @@ import { faker } from '@faker-js/faker'
 import { cartReducer } from './Reducers'
 
 const Cart = createContext()
+faker.seed(99)
 
 const Context = ({ children }) => {
   const products = [...Array(20)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
-    image: faker.image.abstract(),
+    image: faker.image.image(),
     inStock: faker.random.numeric(),
     fastDelivery: faker.datatype.boolean(),
     ratings: Math.ceil(Math.random() * 5),
