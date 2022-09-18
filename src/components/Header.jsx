@@ -6,6 +6,7 @@ import {
   Nav,
   Dropdown,
   Badge,
+  Button,
 } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -68,6 +69,11 @@ const Header = () => {
               ) : (
                 <span style={{ padding: 10 }}>Cart is empty</span>
               )}
+              <Link to={'/cart'}>
+                <Button style={{ width: '95%', margin: '0 10px' }}>
+                  Go to Cart
+                </Button>
+              </Link>
             </Dropdown.Menu>
           </Dropdown>
         </Nav>
