@@ -12,7 +12,7 @@ const Context = ({ children }) => {
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
     image: faker.image.image(),
-    inStock: faker.random.numeric(),
+    inStock: faker.mersenne.rand(9, 0),
     fastDelivery: faker.datatype.boolean(),
     ratings: Math.ceil(Math.random() * 5),
   }))
