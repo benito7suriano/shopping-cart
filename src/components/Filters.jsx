@@ -3,10 +3,17 @@ import { Button, Form } from 'react-bootstrap'
 
 import Rating from './Rating'
 
+import { CartState } from '../context/Context'
+
 const Filters = () => {
   const [state, setState] = useState(3)
 
   const handleClick = (i) => setState(i)
+
+  const {
+    productState: { byStock, byFastDelivery, sort, byRating },
+    productDispatch,
+  } = CartState()
 
   return (
     <div className='filters'>
@@ -18,6 +25,13 @@ const Filters = () => {
           name='group1'
           type='radio'
           id={`inline-1`}
+          onChange={() => {
+            productDispatch({
+              type: 'SORT_BY_PRICE',
+              payload: 'lowToHigh',
+            })
+          }}
+          checked={sort === 'lowToHigh' ? true : false}
         />
       </span>
       <span>
@@ -27,6 +41,13 @@ const Filters = () => {
           name='group1'
           type='radio'
           id={`inline-2`}
+          onChange={() => {
+            productDispatch({
+              type: 'SORT_BY_PRICE',
+              payload: 'highToLow',
+            })
+          }}
+          checked={sort === 'highToLow' ? true : false}
         />
       </span>
       <span>
