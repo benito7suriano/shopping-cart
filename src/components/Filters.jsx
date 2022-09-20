@@ -88,7 +88,15 @@ const Filters = () => {
           style={{ cursor: 'pointer' }}
         />
       </span>
-      <Button variant='light'>Clear Filters</Button>
+      <Button
+        variant='light'
+        onClick={() =>
+          productDispatch({
+            type: 'CLEAR_FILTERS',
+          })
+        }>
+        Clear Filters
+      </Button>
     </div>
   )
 }
