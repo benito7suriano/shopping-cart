@@ -6,14 +6,16 @@ import Rating from './Rating'
 import { CartState } from '../context/Context'
 
 const Filters = () => {
-  const [state, setState] = useState(3)
-
-  const handleClick = (i) => setState(i)
-
   const {
     productState: { byStock, byFastDelivery, sort, byRating },
     productDispatch,
   } = CartState()
+
+  const handleClick = (i) =>
+    productDispatch({
+      type: 'FILTER_BY_RATING',
+      payload: i,
+    })
 
   return (
     <div className='filters'>
@@ -83,7 +85,7 @@ const Filters = () => {
       <span>
         <label style={{ paddingRight: 10 }}>Rating: </label>
         <Rating
-          rating={state}
+          rating={byRating}
           handleClick={handleClick}
           style={{ cursor: 'pointer' }}
         />
