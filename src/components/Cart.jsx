@@ -22,7 +22,12 @@ const Cart = () => {
   const [total, setTotal] = useState(0)
 
   useEffect(() => {
-    setTotal(cart.reduce((acc, curr) => acc + Number(curr.price), 0))
+    setTotal(
+      cart.reduce(
+        (acc, curr) => acc + Number(curr.price) * Number(curr.quantity),
+        0,
+      ),
+    )
   }, [cart])
 
   return (
@@ -43,7 +48,15 @@ const Cart = () => {
                   <Rating rating={prod.ratings} />
                 </Col>
                 <Col md={2}>
-                  <FormControl as={'select'} value={prod.qty}>
+                  <FormControl
+                    as={'select'}
+                    value={prod.quantity}
+                    onChange={(e) =>
+                      dispatch({
+                        type: 'CHANGE_CART_QTY',
+                        payload: { id: prod.id, quantity: e.target.value },
+                      })
+                    }>
                     {[...Array(prod.inStock).keys()].map((x) => (
                       <option key={x + 1}>{x + 1}</option>
                     ))}

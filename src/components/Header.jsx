@@ -25,7 +25,7 @@ const Header = () => {
     <Navbar bg='dark' variant='dark' style={{ height: 80 }}>
       <Container>
         <Navbar.Brand>
-          <Link href=''>Shopping Cart</Link>
+          <Link to='/'>Shopping Cart</Link>
         </Navbar.Brand>
         <Navbar.Text className='search'>
           <FormControl
@@ -36,7 +36,7 @@ const Header = () => {
           />
         </Navbar.Text>
         <Nav>
-          <Dropdown alignRight>
+          <Dropdown>
             <Dropdown.Toggle variant='success'>
               <FaShoppingCart color='white' fontSize={25} />
               <Badge style={{ marginLeft: 2 }} bg='secondary' pill='true'>
