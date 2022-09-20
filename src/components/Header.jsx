@@ -19,6 +19,7 @@ const Header = () => {
   const {
     state: { cart },
     dispatch,
+    productDispatch,
   } = CartState()
 
   return (
@@ -33,6 +34,12 @@ const Header = () => {
             placeholder='search a product'
             className='m-auto'
             aria-label='Search'
+            onChange={(e) =>
+              productDispatch({
+                type: 'FILTER_BY_SEARCH',
+                payload: e.target.value,
+              })
+            }
           />
         </Navbar.Text>
         <Nav>
