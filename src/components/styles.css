@@ -34,6 +34,10 @@
   display: flex;
 }
 
+.title {
+  font-size: 30px;
+}
+
 .productContainer {
   display: flex;
   width: 78%;
