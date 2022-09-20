@@ -57,6 +57,11 @@ const Filters = () => {
           name='group1'
           type='checkbox'
           id={`inline-3`}
+          onChange={() => {
+            productDispatch({
+              type: 'FILTER_BY_STOCK',
+            })
+          }}
         />
       </span>
       <span>
