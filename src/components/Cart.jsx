@@ -11,6 +11,7 @@ import {
 } from 'react-bootstrap'
 
 import Rating from './Rating'
+import { AiFillDelete } from 'react-icons/ai'
 
 const Cart = () => {
   const {
@@ -47,6 +48,16 @@ const Cart = () => {
                       <option key={x + 1}>{x + 1}</option>
                     ))}
                   </FormControl>
+                </Col>
+                <Col md={2}>
+                  <Button
+                    type='button'
+                    variant='light'
+                    onClick={() =>
+                      dispatch({ type: 'REMOVE_FROM_CART', payload: prod })
+                    }>
+                    <AiFillDelete />
+                  </Button>
                 </Col>
               </Row>
             </ListGroup.Item>
