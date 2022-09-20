@@ -62,6 +62,7 @@ const Filters = () => {
               type: 'FILTER_BY_STOCK',
             })
           }}
+          checked={byStock}
         />
       </span>
       <span>
